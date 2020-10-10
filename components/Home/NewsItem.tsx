@@ -10,7 +10,9 @@ export const NewsItem = ({ data, index }) => {
   return (
     <>
       <Cell gray>{index + 1}.</Cell>
-      <Cell gray>{intDisplay(score)}</Cell>
+      <Cell gray style={{ color: "#ff6600" }}>
+        {intDisplay(score)}
+      </Cell>
       <a href={"#"}>
         <Cell>{intDisplay(descendants)}</Cell>
       </a>
@@ -25,7 +27,9 @@ export const NewsItem = ({ data, index }) => {
 };
 
 const Subtext = styled.h2`
+  padding-top: 5px;
   color: #888;
+  font-weight: normal;
 `;
 
 export const Cell = styled.div<{ gray?: boolean }>`

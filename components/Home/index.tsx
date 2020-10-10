@@ -5,7 +5,7 @@ import { Cell, NewsItem } from "./NewsItem";
 import { FaCommentAlt } from "react-icons/fa";
 
 export const Home = () => {
-  const LIST_LENGTH = 7;
+  const LIST_LENGTH = 20;
   const [newsList, setNewsList] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
@@ -48,11 +48,11 @@ export const Home = () => {
         <Cell>#</Cell>
         <Cell>pts.</Cell>
         <Cell>cts.</Cell>
-        <Cell>Title</Cell>
+        <Cell>title</Cell>
         {newsList.map((x, i) => {
           return <NewsItem key={i} data={x} index={i} />;
         })}
-        {isLoading && <LoadingContainer>Loading...</LoadingContainer>}
+        {isLoading && <LoadingContainer>...</LoadingContainer>}
       </NewsList>
     </Wrapper>
   );
@@ -62,16 +62,18 @@ const LoadingContainer = styled.div`
   grid-column: span 4;
   justify-content: center;
   padding: 10px;
+  align-items: center;
 `;
 
 const Wrapper = styled.div`
-  min-height: 110vh;
+  min-height: 100vh;
+  height: 100%;
+  padding-bottom: 100px;
 `;
 
 const NewsList = styled.div`
-  max-width: 800px;
   width: 100%;
-  margin: auto;
+  padding: 20px;
   display: grid;
   grid-gap: 15px;
   column-gap: 10px;
