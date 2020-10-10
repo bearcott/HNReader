@@ -1,12 +1,24 @@
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { wrap } from "module";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { intDisplay } from "../../helpers/format";
+
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 
 export const NewsItem = ({ data, index }) => {
   const { by, score, time, title, type, descendants, url } = data;
-  const parsedURL = new URL(url);
+  const [parsedURL, setUrl] = useState(null);
+  TimeAgo.addLocale(en);
+  const timeAgo = new TimeAgo("en-US");
+  useEffect(() => {
+    try {
+      const parsedURL = new URL(url);
+      setUrl(parsedURL);
+    } catch (e) {}
+  }, []);
+
   return (
     <>
       <Cell gray>{index + 1}.</Cell>
@@ -19,7 +31,9 @@ export const NewsItem = ({ data, index }) => {
       <a href={url} target="_blank">
         <Cell>
           {title}
-          <Subtext>({parsedURL.host})</Subtext>
+          <Subtext>
+            {timeAgo.format(time * 1000)} - ({parsedURL?.host})
+          </Subtext>
         </Cell>
       </a>
     </>
