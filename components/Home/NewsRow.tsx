@@ -7,8 +7,8 @@ import { intDisplay } from "../../helpers/format";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 
-export const NewsItem = ({ data, index }) => {
-  const { by, score, time, title, type, descendants, url } = data;
+export const NewsRow = ({ data, index }) => {
+  const { id, by, score, time, title, type, descendants, url } = data;
   const [parsedURL, setUrl] = useState(null);
   TimeAgo.addLocale(en);
   const timeAgo = new TimeAgo("en-US");
@@ -25,7 +25,7 @@ export const NewsItem = ({ data, index }) => {
       <Cell gray style={{ color: "#ff6600" }}>
         {intDisplay(score)}
       </Cell>
-      <a href={"#"}>
+      <a href={`/item?id=${id}`}>
         <Cell>{intDisplay(descendants)}</Cell>
       </a>
       <a href={url} target="_blank">

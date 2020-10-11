@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useRef } from "react";
 import { useEffect, useState } from "react";
-import { Cell, NewsItem } from "./NewsItem";
+import { Cell, NewsRow } from "./NewsRow";
 import { FaCommentAlt } from "react-icons/fa";
 
 export const Home = () => {
@@ -47,8 +47,8 @@ export const Home = () => {
         <Cell>pts.</Cell>
         <Cell>cts.</Cell>
         <Cell>title</Cell>
-        {newsList.map((x, i) => {
-          return <NewsItem key={i} data={x} index={i} />;
+        {newsList.map((row, i) => {
+          return <NewsRow key={row.id} data={x} index={i} />;
         })}
         {isLoading && <LoadingContainer>...</LoadingContainer>}
       </NewsList>

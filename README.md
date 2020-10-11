@@ -1,3 +1,8 @@
+#HN Reader
+Another HN Reader. Made out of frustration.
+
+visit at [hn.yan.fm])(https://hn.yan.fm/)
+
 ## Getting Started
 
 First, run the development server:
