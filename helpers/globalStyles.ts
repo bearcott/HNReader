@@ -21,6 +21,10 @@ export default css`
     box-sizing: border-box;
   }
 
+  p {
+    line-height: 1.5;
+  }
+
   h1,
   h2 {
     line-height: 1;

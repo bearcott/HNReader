@@ -18,9 +18,13 @@ export const NewsRow = ({ data, index }) => {
   return (
     <>
       <Cell gray>{index + 1}.</Cell>
-      <Cell gray style={{ color: "#ff6600" }}>
-        {intDisplay(score)}
-      </Cell>
+      <Link href={`/item?id=${id}`} scroll={false}>
+        <a style={{ color: "#ff6600" }}>
+          <Cell gray style={{ color: "#ff6600" }}>
+            {intDisplay(score)}
+          </Cell>
+        </a>
+      </Link>
       <Link href={`/item?id=${id}`} scroll={false}>
         <a>
           <Cell>{intDisplay(descendants)}</Cell>
