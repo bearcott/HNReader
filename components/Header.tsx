@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  max-width: 1000px;
+  max-width: 800px;
   width: 100%;
   margin: auto;
   h1 {

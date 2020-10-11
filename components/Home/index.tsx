@@ -70,7 +70,7 @@ export const Home = ({ itemId }) => {
 
 const StoryWrapperInner = styled.div`
   max-width: 100%;
-  width: 800px;
+  width: 700px;
   margin-left: 100px;
   overflow: auto;
   overscroll-behavior: contain;
@@ -113,7 +113,7 @@ const Wrapper = styled.div`
 
 const NewsList = styled.div`
   padding: 20px;
-  width: 1000px;
+  width: 800px;
   margin: auto;
   display: grid;
   grid-gap: 15px;
