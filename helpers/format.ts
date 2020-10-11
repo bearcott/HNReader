@@ -1,3 +1,6 @@
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
+
 export const intDisplay = (num: number) => {
   return !num ? "--" : num;
 };
@@ -10,3 +13,6 @@ export function decodeHtml(html) {
   txt.remove();
   return val;
 }
+
+TimeAgo.addLocale(en);
+export const timeAgo = new TimeAgo("en-US");

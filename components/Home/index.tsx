@@ -48,7 +48,7 @@ export const Home = () => {
         <Cell>cts.</Cell>
         <Cell>title</Cell>
         {newsList.map((row, i) => {
-          return <NewsRow key={row.id} data={x} index={i} />;
+          return <NewsRow key={row.id} data={row} index={i} />;
         })}
         {isLoading && <LoadingContainer>...</LoadingContainer>}
       </NewsList>

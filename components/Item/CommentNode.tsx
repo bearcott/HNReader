@@ -23,4 +23,7 @@ const Wrapper = styled.div`
   padding: 10px;
 `;
 
-const KidsContainer = styled.div``;
+const KidsContainer = styled.div`
+  padding-left: 30px;
+  border-left: 2px solid;
+`;

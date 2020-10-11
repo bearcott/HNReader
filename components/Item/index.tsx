@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import { useInitialFetch } from "../../helpers/effects";
+import { timeAgo } from "../../helpers/format";
 import { CommentNode } from "./CommentNode";
 
 export const ItemIndex = ({ id }) => {
@@ -10,7 +11,12 @@ export const ItemIndex = ({ id }) => {
 
   return (
     <Wrapper>
-      {story.title}
+      <h1>{story.title}</h1>
+      <h2>
+        {timeAgo.format(story.time * 1000)}
+        {" - "}
+        {story.score} points - {story.descendants} comments
+      </h2>
       <CommentList>
         {story.kids.map((kid) => {
           return <CommentNode key={kid} id={kid} />;

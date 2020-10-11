@@ -2,16 +2,11 @@ import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { wrap } from "module";
 import React, { useEffect, useState } from "react";
-import { intDisplay } from "../../helpers/format";
-
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
+import { intDisplay, timeAgo } from "../../helpers/format";
 
 export const NewsRow = ({ data, index }) => {
   const { id, by, score, time, title, type, descendants, url } = data;
   const [parsedURL, setUrl] = useState(null);
-  TimeAgo.addLocale(en);
-  const timeAgo = new TimeAgo("en-US");
   useEffect(() => {
     try {
       const parsedURL = new URL(url);
