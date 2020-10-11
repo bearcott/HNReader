@@ -32,7 +32,8 @@ export const NewsItem = ({ data, index }) => {
         <Cell>
           {title}
           <Subtext>
-            {timeAgo.format(time * 1000)} - ({parsedURL?.host})
+            {timeAgo.format(time * 1000)}
+            {parsedURL?.host && ` - (${parsedURL?.host})`}
           </Subtext>
         </Cell>
       </a>

@@ -21,7 +21,6 @@ export const Home = () => {
 
   useEffect(() => {
     const checkScroll = async (e: Event) => {
-      console.log(isLoading);
       if (isLoading) return;
       //if scrolled to bottom
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -31,7 +30,6 @@ export const Home = () => {
         );
         const getMoreData = await getMore.json();
         setLoading(false);
-        console.log(getMoreData);
         setNewsList(getMoreData);
       }
     };
@@ -72,8 +70,9 @@ const Wrapper = styled.div`
 `;
 
 const NewsList = styled.div`
-  width: 100%;
   padding: 20px;
+  width: fit-content;
+  margin: auto;
   display: grid;
   grid-gap: 15px;
   column-gap: 10px;
