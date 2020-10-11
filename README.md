@@ -1,5 +1,6 @@
-#HN Reader
-Another HN Reader. Made out of frustration.
+# HN Reader
+
+Another HN Reader. Made out of frustration and boredom.
 
 visit at [hn.yan.fm])(https://hn.yan.fm/)
 
