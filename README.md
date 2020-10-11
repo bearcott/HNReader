@@ -2,7 +2,7 @@
 
 Another HN Reader. Made out of frustration and boredom.
 
-visit at [hn.yan.fm])(https://hn.yan.fm/)
+visit at [hn.yan.fm](https://hn.yan.fm/)
 
 ## Getting Started
 
