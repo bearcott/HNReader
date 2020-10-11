@@ -18,7 +18,7 @@ export const ItemIndex = ({ id }) => {
         {story.score} points - {story.descendants} comments
       </h2>
       <CommentList>
-        {story.kids.map((kid) => {
+        {story.kids?.map((kid) => {
           return <CommentNode key={kid} id={kid} />;
         })}
       </CommentList>
@@ -27,10 +27,8 @@ export const ItemIndex = ({ id }) => {
 };
 
 const Wrapper = styled.div`
-  max-width: 800;
-  width: 100%;
   padding: 20px;
-  margin: auto;
+  background: #fff;
 `;
 
 const CommentList = styled.div`

@@ -34,4 +34,22 @@ export default css`
   h2 {
     font-size: 12px;
   }
+
+  /* ---- Custom Scrollbars ---- */
+  ::-webkit-scrollbar {
+    width: 8px; /* for vertical scrollbars */
+    height: 8px; /* for horizontal scrollbars */
+  }
+
+  /* ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: "#000";
+    border-radius: 100px;
+    &:hover {
+      background-color: "#555";
+    }
+  } */
 `;

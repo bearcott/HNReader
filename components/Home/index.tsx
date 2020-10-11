@@ -3,8 +3,10 @@ import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import { Cell, NewsRow } from "./NewsRow";
 import { FaCommentAlt } from "react-icons/fa";
+import { ItemIndex } from "../Item";
+import Link from "next/link";
 
-export const Home = () => {
+export const Home = ({ itemId }) => {
   const LIST_LENGTH = 20;
   const [newsList, setNewsList] = useState([]);
   const [isLoading, setLoading] = useState(false);
@@ -52,9 +54,43 @@ export const Home = () => {
         })}
         {isLoading && <LoadingContainer>...</LoadingContainer>}
       </NewsList>
+      {itemId && (
+        <StoryWrapper>
+          <Link href="/" scroll={false}>
+            <Bg />
+          </Link>
+          <StoryWrapperInner>
+            <ItemIndex id={itemId} />
+          </StoryWrapperInner>
+        </StoryWrapper>
+      )}
     </Wrapper>
   );
 };
+
+const StoryWrapperInner = styled.div`
+  max-width: 100%;
+  width: 800px;
+  margin: auto;
+  overflow: auto;
+  height: 100%;
+`;
+
+const Bg = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+`;
+
+const StoryWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
 
 const LoadingContainer = styled.div`
   grid-column: span 4;

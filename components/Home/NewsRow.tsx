@@ -1,5 +1,6 @@
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { wrap } from "module";
 import React, { useEffect, useState } from "react";
 import { intDisplay, timeAgo } from "../../helpers/format";
@@ -20,9 +21,9 @@ export const NewsRow = ({ data, index }) => {
       <Cell gray style={{ color: "#ff6600" }}>
         {intDisplay(score)}
       </Cell>
-      <a href={`/item?id=${id}`}>
+      <Link href={`/item?id=${id}`} scroll={false}>
         <Cell>{intDisplay(descendants)}</Cell>
-      </a>
+      </Link>
       <a href={url} target="_blank">
         <Cell>
           {title}
