@@ -22,7 +22,9 @@ export const NewsRow = ({ data, index }) => {
         {intDisplay(score)}
       </Cell>
       <Link href={`/item?id=${id}`} scroll={false}>
-        <Cell>{intDisplay(descendants)}</Cell>
+        <a>
+          <Cell>{intDisplay(descendants)}</Cell>
+        </a>
       </Link>
       <a href={url} target="_blank">
         <Cell>

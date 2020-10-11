@@ -41,7 +41,7 @@ export default css`
     height: 8px; /* for horizontal scrollbars */
   }
 
-  /* ::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     background: transparent;
   }
 
@@ -51,5 +51,5 @@ export default css`
     &:hover {
       background-color: "#555";
     }
-  } */
+  }
 `;
