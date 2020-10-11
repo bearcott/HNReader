@@ -40,6 +40,13 @@ const Text = styled.div`
   line-height: 1.5;
   pre {
     background: #eee;
+    white-space: break-spaces;
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
 
@@ -50,7 +57,7 @@ const Collapser = styled.div`
   left: 0;
   height: 100%;
   div {
-    border-left: 2px solid;
+    border-left: 5px solid #f5f5f5;
     height: 100%;
   }
   &:hover div {

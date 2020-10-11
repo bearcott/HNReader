@@ -71,9 +71,13 @@ export const Home = ({ itemId }) => {
 const StoryWrapperInner = styled.div`
   max-width: 100%;
   width: 800px;
-  margin: auto;
+  margin-left: 100px;
   overflow: auto;
+  overscroll-behavior: contain;
+
   height: 100%;
+  box-shadow: -20px 0 40px -40px rgba(0, 0, 0, 0.3);
+  background: #fff;
 `;
 
 const Bg = styled.div`
@@ -86,6 +90,8 @@ const Bg = styled.div`
 
 const StoryWrapper = styled.div`
   position: fixed;
+  display: flex;
+  justify-content: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -107,7 +113,7 @@ const Wrapper = styled.div`
 
 const NewsList = styled.div`
   padding: 20px;
-  width: fit-content;
+  width: 1000px;
   margin: auto;
   display: grid;
   grid-gap: 15px;

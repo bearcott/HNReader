@@ -49,11 +49,11 @@ export default css`
     background: transparent;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: "#000";
+  *::-webkit-scrollbar-thumb {
+    background: #000;
     border-radius: 100px;
     &:hover {
-      background-color: "#555";
+      background-color: #555;
     }
   }
 `;

@@ -28,7 +28,6 @@ export const ItemIndex = ({ id }) => {
 
 const Wrapper = styled.div`
   padding: 20px;
-  background: #fff;
 `;
 
 const CommentList = styled.div`
