@@ -15,7 +15,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       fetch(`https://hacker-news.firebaseio.com/v0/item/${x}.json?print=pretty`)
     );
   const stories = await Promise.all(storySelection);
-  const storySelectionData = await Promise.all(stories.map((x) => x.json()));
+  const storySelectionData = await Promise.all(
+    stories.map((x: any) => x.json())
+  );
 
   res.statusCode = 200;
   res.json(storySelectionData);
