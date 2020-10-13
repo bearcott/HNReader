@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { useInitialFetch } from "../../helpers/effects";
-import { decodeHtml } from "../../helpers/format";
+import { decodeHtml, timeAgo } from "../../helpers/format";
 
 export const CommentNode = ({ id }) => {
   const [comment, isLoading] = useInitialFetch(id && `/api/item?id=${id}`);
@@ -11,10 +11,14 @@ export const CommentNode = ({ id }) => {
 
   return (
     <Wrapper>
+      <Header onClick={() => setCollapsed(!collapsed)}>
+        {comment.by}
+        {" · "}
+        {timeAgo.format(comment.time * 1000)}
+      </Header>
       <Collapser onClick={() => setCollapsed(!collapsed)}>
         <div />
       </Collapser>
-      <Header onClick={() => setCollapsed(!collapsed)}>{comment.by}</Header>
       {!collapsed && (
         <Text dangerouslySetInnerHTML={{ __html: comment.text }} />
       )}
@@ -26,15 +30,6 @@ export const CommentNode = ({ id }) => {
     </Wrapper>
   );
 };
-
-const Header = styled.div`
-  display: flex;
-  color: #555;
-  &:hover {
-    cursor: pointer;
-    background: #eee;
-  }
-`;
 
 const Text = styled.div`
   line-height: 1.5;
@@ -57,14 +52,26 @@ const Collapser = styled.div`
   left: 0;
   height: 100%;
   div {
-    border-left: 5px solid #f5f5f5;
+    border-left: 3px solid #eee;
     height: 100%;
   }
   &:hover div {
     border-left-style: dashed;
+    border-color: #000;
   }
   &:hover {
     cursor: pointer;
+  }
+`;
+
+const Header = styled.div`
+  display: flex;
+  color: #bbb;
+  &:hover {
+    cursor: pointer;
+    + ${Collapser} {
+      border-left-style: dashed;
+    }
   }
 `;
 
