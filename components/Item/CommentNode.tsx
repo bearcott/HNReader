@@ -57,7 +57,7 @@ const Collapser = styled.div`
   }
   &:hover div {
     border-left-style: dashed;
-    border-color: #000;
+    border-color: #f3f3f3;
   }
   &:hover {
     cursor: pointer;
@@ -72,7 +72,7 @@ const Header = styled.div`
     cursor: pointer;
     + ${Collapser} div {
       border-left-style: dashed;
-      border-color: #000;
+      border-color: #f3f3f3;
     }
   }
 `;
