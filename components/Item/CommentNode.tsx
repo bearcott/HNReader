@@ -69,8 +69,9 @@ const Header = styled.div`
   color: #bbb;
   &:hover {
     cursor: pointer;
-    + ${Collapser} {
+    + ${Collapser} div {
       border-left-style: dashed;
+      border-color: #000;
     }
   }
 `;
