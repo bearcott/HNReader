@@ -15,6 +15,10 @@ export const CommentNode = ({ id }) => {
         {comment.by}
         {" · "}
         {timeAgo.format(comment.time * 1000)}
+        {/* TODO: calculate the whole tree of kids */}
+        {collapsed &&
+          comment.kids &&
+          ` · (${comment.kids.length} hidden comments)`}
       </Header>
       <Collapser onClick={() => setCollapsed(!collapsed)}>
         <div />
