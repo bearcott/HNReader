@@ -66,7 +66,8 @@ const Collapser = styled.div`
 
 const Header = styled.div`
   display: flex;
-  color: #bbb;
+  color: #999;
+  font-size: 12px;
   &:hover {
     cursor: pointer;
     + ${Collapser} div {
