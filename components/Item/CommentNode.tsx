@@ -12,7 +12,15 @@ export const CommentNode = ({ id }) => {
   return (
     <Wrapper>
       <Header onClick={() => setCollapsed(!collapsed)}>
-        {comment.by}
+        <a
+          href=""
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+        >
+          {comment.by}
+        </a>
         {" · "}
         {timeAgo.format(comment.time * 1000)}
         {/* TODO: calculate the whole tree of kids */}
