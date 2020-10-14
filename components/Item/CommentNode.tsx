@@ -1,3 +1,4 @@
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 import { useInitialFetch } from "../../helpers/effects";
@@ -57,6 +58,11 @@ const Text = styled.div`
   }
 `;
 
+const collapseStyles = css`
+  border-left-style: dashed;
+  border-color: #222;
+`;
+
 const Collapser = styled.div`
   padding: 0 14px;
   position: absolute;
@@ -64,12 +70,11 @@ const Collapser = styled.div`
   left: 0;
   height: 100%;
   div {
-    border-left: 3px solid #eee;
+    border-left: 2px solid #eee;
     height: 100%;
   }
   &:hover div {
-    border-left-style: dashed;
-    border-color: #f3f3f3;
+    ${collapseStyles}
   }
   &:hover {
     cursor: pointer;
@@ -83,8 +88,7 @@ const Header = styled.div`
   &:hover {
     cursor: pointer;
     + ${Collapser} div {
-      border-left-style: dashed;
-      border-color: #f3f3f3;
+      ${collapseStyles}
     }
   }
 `;

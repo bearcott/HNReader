@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
-import React, { useRef } from "react";
-import { useEffect, useState } from "react";
-import { Cell, NewsRow } from "./NewsRow";
-import { FaCommentAlt } from "react-icons/fa";
-import { ItemIndex } from "../Item";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { ItemIndex } from "../Item";
+import { NewsList } from "./NewsList";
 
 export const Home = ({ itemId }) => {
   const LIST_LENGTH = 20;
@@ -43,17 +41,11 @@ export const Home = ({ itemId }) => {
   }, [newsList]);
 
   return (
-    <Wrapper>
-      <NewsList>
-        <Cell>#</Cell>
-        <Cell>pts.</Cell>
-        <Cell>cts.</Cell>
-        <Cell>title</Cell>
-        {newsList.map((row, i) => {
-          return <NewsRow key={row.id} data={row} index={i} />;
-        })}
+    <PageWrapper>
+      <Article>
+        <NewsList newsList={newsList} />
         {isLoading && <LoadingContainer>...</LoadingContainer>}
-      </NewsList>
+      </Article>
       {itemId && (
         <StoryWrapper>
           <Link href="/" scroll={false}>
@@ -64,9 +56,21 @@ export const Home = ({ itemId }) => {
           </StoryWrapperInner>
         </StoryWrapper>
       )}
-    </Wrapper>
+    </PageWrapper>
   );
 };
+
+const Article = styled.div`
+  width: 800px;
+  margin: auto;
+`;
+
+const LoadingContainer = styled.div`
+  grid-column: span 4;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+`;
 
 const StoryWrapperInner = styled.div`
   max-width: 100%;
@@ -98,25 +102,8 @@ const StoryWrapper = styled.div`
   height: 100%;
 `;
 
-const LoadingContainer = styled.div`
-  grid-column: span 4;
-  justify-content: center;
-  padding: 10px;
-  align-items: center;
-`;
-
-const Wrapper = styled.div`
+const PageWrapper = styled.div`
   min-height: 100vh;
   height: 100%;
   padding-bottom: 100px;
-`;
-
-const NewsList = styled.div`
-  padding: 20px;
-  width: 800px;
-  margin: auto;
-  display: grid;
-  grid-gap: 15px;
-  column-gap: 10px;
-  grid-template-columns: auto auto auto 1fr;
 `;
