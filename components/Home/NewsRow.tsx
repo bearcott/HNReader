@@ -4,10 +4,13 @@ import Link from "next/link";
 import { wrap } from "module";
 import React, { useEffect, useState } from "react";
 import { intDisplay, timeAgo } from "../../helpers/format";
+import { useRouter } from "next/router";
 
 export const NewsRow = ({ data, index }) => {
   const { id, by, score, time, title, type, descendants, url } = data;
   const [parsedURL, setUrl] = useState(null);
+  const router = useRouter();
+
   useEffect(() => {
     try {
       const parsedURL = new URL(url);
@@ -30,15 +33,26 @@ export const NewsRow = ({ data, index }) => {
           <Cell>{intDisplay(descendants)}</Cell>
         </a>
       </Link>
-      <a href={url} target="_blank">
-        <Cell>
+      <Cell>
+        <a
+          onClick={() => {
+            router.push(`/item?id=${id}`);
+          }}
+          href={url}
+          target="_blank"
+        >
           {title}
-          <Subtext>
-            {timeAgo.format(time * 1000)}
-            {parsedURL?.host && ` - (${parsedURL?.host})`}
-          </Subtext>
-        </Cell>
-      </a>
+        </a>
+        <Subtext>
+          {timeAgo.format(time * 1000)}
+          {parsedURL?.host && " · "}
+          {parsedURL?.host && (
+            <a href={url} target="_blank">
+              ({parsedURL?.host})
+            </a>
+          )}
+        </Subtext>
+      </Cell>
     </>
   );
 };
