@@ -46,11 +46,7 @@ export const NewsRow = ({ data, index }) => {
         <Subtext>
           {timeAgo.format(time * 1000)}
           {parsedURL?.host && " · "}
-          {parsedURL?.host && (
-            <a href={url} target="_blank">
-              ({parsedURL?.host})
-            </a>
-          )}
+          {parsedURL?.host && <a href={url}>({parsedURL?.host})</a>}
         </Subtext>
       </Cell>
     </>
