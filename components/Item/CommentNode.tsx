@@ -83,7 +83,7 @@ const Collapser = styled.div`
 
 const Header = styled.div`
   display: flex;
-  color: #999;
+  color: #888;
   font-size: 12px;
   &:hover {
     cursor: pointer;

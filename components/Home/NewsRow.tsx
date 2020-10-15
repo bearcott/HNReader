@@ -33,7 +33,7 @@ export const NewsRow = ({ data, index }) => {
           <Cell>{intDisplay(descendants)}</Cell>
         </a>
       </Link>
-      <Cell>
+      <TitleCell>
         <a
           onClick={() => {
             router.push(`/item?id=${id}`);
@@ -48,7 +48,7 @@ export const NewsRow = ({ data, index }) => {
           {parsedURL?.host && " · "}
           {parsedURL?.host && <a href={url}>({parsedURL?.host})</a>}
         </Subtext>
-      </Cell>
+      </TitleCell>
     </>
   );
 };
@@ -63,4 +63,12 @@ export const Cell = styled.div<{ gray?: boolean }>`
   display: flex;
   flex-direction: column;
   color: ${(props) => props.gray && "#888"};
+`;
+
+const TitleCell = styled(Cell)`
+  a {
+    &:visited {
+      color: #888;
+    }
+  }
 `;
