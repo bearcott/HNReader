@@ -81,7 +81,7 @@ const StoryWrapperInner = styled.div`
 
   height: 100%;
   box-shadow: -20px 0 40px -40px rgba(0, 0, 0, 0.3);
-  background: #fff;
+  background: #f6f6ef;
 `;
 
 const Bg = styled.div`
