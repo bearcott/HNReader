@@ -80,7 +80,7 @@ const StoryWrapperInner = styled.div`
   overscroll-behavior: contain;
 
   height: 100%;
-  box-shadow: -20px 0 40px -40px rgba(246, 246, 239, 0.3);
+  box-shadow: -20px 0 40px -40px rgba(0, 0, 0, 0.3);
   background: #f6f6ef;
 `;
 
@@ -88,7 +88,7 @@ const Bg = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(246, 246, 239, 0.5);
   z-index: -1;
 `;
 
