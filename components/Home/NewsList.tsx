@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { Cell, NewsRow } from "./NewsRow";
+import { Cell, CommentCell, NewsRow } from "./NewsRow";
 
 export const NewsList = ({ newsList }) => {
   return (
     <Wrapper>
-      <Cell>#</Cell>
-      <Cell>pts.</Cell>
-      <Cell>cts.</Cell>
-      <Cell>title</Cell>
+      <CommentCell>💬</CommentCell>
+      <Cell>Title</Cell>
       {newsList.map((row, i) => {
         return <NewsRow key={row.id} data={row} index={i} />;
       })}
@@ -19,7 +17,5 @@ export const NewsList = ({ newsList }) => {
 const Wrapper = styled.div`
   padding: 20px;
   display: grid;
-  grid-gap: 15px;
-  column-gap: 10px;
-  grid-template-columns: auto auto auto 1fr;
+  grid-template-columns: auto 1fr;
 `;

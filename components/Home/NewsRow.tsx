@@ -5,55 +5,76 @@ import { wrap } from "module";
 import React, { useEffect, useState } from "react";
 import { intDisplay, timeAgo } from "../../helpers/format";
 import { useRouter } from "next/router";
+import { Spacer } from "../Spacer";
 
 export const NewsRow = ({ data, index }) => {
   const { id, by, score, time, title, type, descendants, url } = data;
-  const [parsedURL, setUrl] = useState(null);
+  // const [parsedURL, setUrl] = useState(null);
   const router = useRouter();
 
-  useEffect(() => {
-    try {
-      const parsedURL = new URL(url);
-      setUrl(parsedURL);
-    } catch (e) {}
-  }, []);
+  let parsedURL;
+  try {
+    parsedURL = new URL(url);
+  } catch (e) {}
+
+  // useEffect(() => {
+  //   try {
+  //     const parsedURL = new URL(url);
+  //     setUrl(parsedURL);
+  //   } catch (e) {}
+  // }, []);
 
   return (
     <>
-      <Cell gray>{index + 1}.</Cell>
-      <Link href={`/item?id=${id}`} scroll={false}>
-        <a style={{ color: "#ff6600" }}>
-          <Cell gray style={{ color: "#ff6600" }}>
-            {intDisplay(score)}
-          </Cell>
-        </a>
-      </Link>
       <Link href={`/item?id=${id}`} scroll={false}>
         <a>
-          <Cell>{intDisplay(descendants)}</Cell>
+          {type === "job" ? (
+            ""
+          ) : (
+            <CommentCell>{intDisplay(descendants)}</CommentCell>
+          )}
         </a>
       </Link>
+
       <TitleCell>
-        <a
-          onClick={() => {
-            router.push(`/item?id=${id}`);
-          }}
-          href={url}
-          target="_blank"
-        >
-          {title}
-        </a>
-        <Subtext>
+        <h1>
+          <a
+            onClick={(e) => {
+              if (!e.metaKey) {
+                router.push(`/item?id=${id}`);
+              }
+            }}
+            href={url}
+            target="_blank"
+          >
+            {type === "job" ? <JobTitle>{title}</JobTitle> : title}
+          </a>
+        </h1>
+        <Subtitle>
           {timeAgo.format(time * 1000)}
           {parsedURL?.host && " · "}
           {parsedURL?.host && <a href={url}>({parsedURL?.host})</a>}
-        </Subtext>
+        </Subtitle>
       </TitleCell>
     </>
   );
 };
 
-const Subtext = styled.h2`
+export const CommentCell: React.FC = ({ children }) => (
+  <Cell gray style={{ alignItems: "flex-end", paddingRight: "4px" }}>
+    <h1>
+      ( <span style={{ color: "black" }}>{children}</span> )
+    </h1>
+  </Cell>
+);
+
+const JobTitle = ({ children }) => <Gray>Job · [{children}]</Gray>;
+
+const Gray = styled.span`
+  color: #888;
+`;
+
+const Subtitle = styled.h2`
   padding-top: 5px;
   color: #888;
   font-weight: normal;
@@ -62,6 +83,7 @@ const Subtext = styled.h2`
 export const Cell = styled.div<{ gray?: boolean }>`
   display: flex;
   flex-direction: column;
+  padding: 8px 2px;
   color: ${(props) => props.gray && "#888"};
 `;
 

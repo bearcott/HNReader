@@ -15,6 +15,7 @@ export default css`
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 
@@ -30,10 +31,11 @@ export default css`
   h2 {
     line-height: 1;
     margin: 0;
+    font-weight: normal;
   }
 
   h1 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   h2 {
