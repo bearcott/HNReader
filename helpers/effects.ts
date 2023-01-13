@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useInitialFetch = (url: string, refetch?: any[]) => {
   const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!url) return;
@@ -13,6 +13,8 @@ export const useInitialFetch = (url: string, refetch?: any[]) => {
         setData(dataJson);
       } catch (e) {
         console.log(e);
+      } finally {
+        setLoading(false);
       }
     })();
   }, [url, ...(refetch || [])]);

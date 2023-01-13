@@ -8,14 +8,11 @@ import { CommentNode } from "./CommentNode";
 export const ItemIndex = ({ id }) => {
   const [story, isLoading] = useInitialFetch(id && `/api/item?id=${id}`, [id]);
 
-  if (!story) return <Wrapper>loading...</Wrapper>;
+  if (isLoading) return <Wrapper>loading...</Wrapper>;
 
   const { by, score, time, title, descendants, kids, type, url } = story;
 
-  let parsedURL;
-  try {
-    parsedURL = new URL(url);
-  } catch (e) {}
+  const host = url ? new URL(url).host : undefined;
 
   return (
     <Wrapper>
@@ -30,8 +27,8 @@ export const ItemIndex = ({ id }) => {
         {score} points
         {" · "}
         {descendants} comments
-        {parsedURL?.host && " · "}
-        {parsedURL?.host && <a href={url}>({parsedURL?.host})</a>}
+        {host && " · "}
+        {host && <a href={url}>({host})</a>}
       </h2>
       <Spacer y={32} />
       <CommentList>

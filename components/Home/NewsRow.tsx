@@ -9,20 +9,9 @@ import { Spacer } from "../Spacer";
 
 export const NewsRow = ({ data, index }) => {
   const { id, by, score, time, title, type, descendants, url } = data;
-  // const [parsedURL, setUrl] = useState(null);
   const router = useRouter();
 
-  let parsedURL;
-  try {
-    parsedURL = new URL(url);
-  } catch (e) {}
-
-  // useEffect(() => {
-  //   try {
-  //     const parsedURL = new URL(url);
-  //     setUrl(parsedURL);
-  //   } catch (e) {}
-  // }, []);
+  const host = url ? new URL(url).host : undefined;
 
   return (
     <>
@@ -52,8 +41,9 @@ export const NewsRow = ({ data, index }) => {
         </h1>
         <Subtitle>
           {timeAgo.format(time * 1000)}
-          {parsedURL?.host && " · "}
-          {parsedURL?.host && <a href={url}>({parsedURL?.host})</a>}
+          {!url && ` by ${by}`}
+          {host && " · "}
+          {host && <a href={url}>({host})</a>}
         </Subtitle>
       </TitleCell>
     </>

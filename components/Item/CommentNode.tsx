@@ -8,7 +8,7 @@ export const CommentNode = ({ id }) => {
   const [comment, isLoading] = useInitialFetch(id && `/api/item?id=${id}`);
   const [collapsed, setCollapsed] = useState(false);
 
-  if (!comment) return <div>loading...</div>;
+  if (isLoading) return <div>loading...</div>;
 
   return (
     <Wrapper>
