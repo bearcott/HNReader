@@ -1,8 +1,10 @@
 type IProps =
   | {
       y: 4 | 8 | 16 | 32;
+      x?: never;
     }
   | {
+      y?: never;
       x: 4 | 8 | 16 | 32;
     };
 
