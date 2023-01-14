@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "export NODE_OPTIONS=--openssl-legacy-provider && next start"
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
