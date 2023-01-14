@@ -10,17 +10,22 @@ export const ItemIndex = ({ id }) => {
 
   if (isLoading) return <Wrapper>loading...</Wrapper>;
 
-  const { by, score, time, title, descendants, kids, type, url } = story;
+  const { by, score, time, title, text, descendants, kids, type, url } = story;
 
   const host = url ? new URL(url).host : undefined;
 
   return (
     <Wrapper>
       <h1>
-        <a href={url} target="_blank">
-          {title}
-        </a>
+        {url ? (
+          <a href={url} target="_blank">
+            {title}
+          </a>
+        ) : (
+          title
+        )}
       </h1>
+      <p dangerouslySetInnerHTML={{ __html: text }} />
       <h2>
         {timeAgo.format(time * 1000)} by {by}
         {" · "}
@@ -44,9 +49,13 @@ const Wrapper = styled.div`
   padding: 20px;
   & > h1 {
     margin-bottom: 10px;
+    font-weight: bold;
   }
   & > h2 {
     color: #888;
+  }
+  a {
+    text-decoration: underline;
   }
 `;
 

@@ -44,6 +44,7 @@ features I want to add:
   - is it important to highlight who is who? are comment colors necessary? Do people comment often enough to each other that its useful?
   - if its important could use color + shape
 - dont make job postings grayed out, looks like its been read
+- add an arrow pointing left on item pages to push the page fullscreen. "Fullpages" can be the default when hyperlinked to the site
 
 UX Fixes
 
