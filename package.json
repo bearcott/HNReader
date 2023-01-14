@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "engines": {
-    "node": "16.16.0"
+    "node": "^16"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
