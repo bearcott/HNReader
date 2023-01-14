@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "export NODE_OPTIONS=--openssl-legacy-provider && next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && next start"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
