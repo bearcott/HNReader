@@ -1,4 +1,4 @@
-# HN Reader
+# HN Reader (WIP)
 
 Another HN Reader. Made out of frustration and boredom.
 
@@ -16,7 +16,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-# Notes
+# Dev Notes
 
 features I want to add:
 
