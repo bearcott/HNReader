@@ -22,18 +22,7 @@ features I want to add:
 
 - scroll up to refresh top of feed
 - numbers on the left to symbolize the 30th, 60th, etc post so you do not get lost scrolling
-- implement reddit scroll position fix when collapsing comments
-- make comment bars more visible ( a little )
 - last updated counter in bottom right
-- fix scroll bar positioning (disable scrolling of page when looking at an items)
-- add description to items
-- fix hover effect of article comment (you should visually see what comment is collapsed when hovering on the right)
-- why are there empty comments?
-- fix comment on main page alignment
-- better comment formatting
-  - code blocks
-  - indenting and bolding
-  - make links open in a new tab
 - save last viewed article in bottom right corner
 - override the refresh on browser
   - when updating the list, diff the position of posts to show green when a post goes up and red when a post goes down
@@ -43,10 +32,26 @@ features I want to add:
 - comment colors, who is OP and who is not
   - is it important to highlight who is who? are comment colors necessary? Do people comment often enough to each other that its useful?
   - if its important could use color + shape
-- dont make job postings grayed out, looks like its been read
-- add an arrow pointing left on item pages to push the page fullscreen. "Fullpages" can be the default when hyperlinked to the site
+- fullscreen pages: add an arrow pointing left on item pages to push the page fullscreen. "Fullpages" can be the default when hyperlinked to the site
+- dark mode
+- search bar
+- user page
+- mobile
 
 UX Fixes
 
+- comments section
+  - implement reddit scroll position fix when collapsing comments
+  - cache collapsed comments
+  - fix hover effect of article comment (you should visually see what comment is collapsed when hovering on the right)
+  - make comment bars more visible ( a little )
+  - why are there empty comments?
+- fix scroll bar positioning (disable scrolling of page when looking at an items)
+- better comment formatting
+  - code blocks
+  - indenting and bolding
+  - find `>` characters and comment block them
+  - make links open in a new tab
+- dont make job postings grayed out, looks like its been read
 - on HN its hard to know where you are on the list. since its paginated 30-60 looks the same as 1-30. Only the numbers tell you but they're grayed out.
 - if a post has zero comments, make sure it has zero comments then don't display the post sub page when clicking on it.
