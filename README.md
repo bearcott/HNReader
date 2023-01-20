@@ -46,6 +46,8 @@ UX Fixes
   - fix hover effect of article comment (you should visually see what comment is collapsed when hovering on the right)
   - make comment bars more visible ( a little )
   - why are there empty comments?
+  - hidden comments should include sum of all children not just direct descendants
+  - should be able to hyperlink a comment
 - fix scroll bar positioning (disable scrolling of page when looking at an items)
 - better comment formatting
   - code blocks
