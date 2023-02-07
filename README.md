@@ -48,6 +48,7 @@ UX Fixes
   - why are there empty comments?
   - hidden comments should include sum of all children not just direct descendants
   - should be able to hyperlink a comment
+  - increase size of collapsed comment
 - fix scroll bar positioning (disable scrolling of page when looking at an items)
 - better comment formatting
   - code blocks

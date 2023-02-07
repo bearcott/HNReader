@@ -4,7 +4,12 @@ import React, { useState } from "react";
 import { useInitialFetch } from "../../helpers/effects";
 import { decodeHtml, timeAgo } from "../../helpers/format";
 
-export const CommentNode = ({ id }) => {
+type Props = {
+  id: string;
+  op: string;
+};
+
+export const CommentNode = ({ id, op }: Props) => {
   const [comment, isLoading] = useInitialFetch(id && `/api/item?id=${id}`);
   const [collapsed, setCollapsed] = useState(false);
 
@@ -22,6 +27,7 @@ export const CommentNode = ({ id }) => {
         >
           {comment.by}
         </a>
+        {comment.by === op && " [op] "}
         {" · "}
         {timeAgo.format(comment.time * 1000)}
         {/* TODO: calculate the whole tree of kids */}
@@ -37,7 +43,7 @@ export const CommentNode = ({ id }) => {
       )}
       <KidsContainer collapsed={collapsed}>
         {comment?.kids?.map((kid) => {
-          return <CommentNode key={kid} id={kid} />;
+          return <CommentNode key={kid} id={kid} op={op} />;
         })}
       </KidsContainer>
     </Wrapper>
