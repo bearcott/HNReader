@@ -38,7 +38,7 @@ export const ItemIndex = ({ id }) => {
       <Spacer y={32} />
       <CommentList>
         {kids?.map((kid) => {
-          return <CommentNode key={kid} id={kid} />;
+          return <CommentNode key={kid} id={kid} op={by} />;
         })}
       </CommentList>
     </Wrapper>
