@@ -49,12 +49,11 @@ UX Fixes
   - hidden comments should include sum of all children not just direct descendants
   - should be able to hyperlink a comment
   - increase size of collapsed comment
+  - better comment formatting
+    - code blocks
+    - indenting and bolding
+    - find `>` characters and comment block them
+    - make links open in a new tab
 - fix scroll bar positioning (disable scrolling of page when looking at an items)
-- better comment formatting
-  - code blocks
-  - indenting and bolding
-  - find `>` characters and comment block them
-  - make links open in a new tab
-- dont make job postings grayed out, looks like its been read
 - on HN its hard to know where you are on the list. since its paginated 30-60 looks the same as 1-30. Only the numbers tell you but they're grayed out.
 - if a post has zero comments, make sure it has zero comments then don't display the post sub page when clicking on it.
