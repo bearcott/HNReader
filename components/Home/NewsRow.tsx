@@ -89,13 +89,14 @@ export const Cell = styled.div<{ gray?: boolean }>`
 
 const RankingWrapper = styled.div<{ big?: boolean; visible?: boolean }>`
   position: absolute;
+  left: 50px;
   padding-top: 6.5px;
   margin-left: -40px;
   text-align: center;
   width: 30px;
-  color: #999;
+  color: #ccc;
   font-size: 12px;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.6s ease;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   &:after {
     content: "";
@@ -103,8 +104,8 @@ const RankingWrapper = styled.div<{ big?: boolean; visible?: boolean }>`
     position: absolute;
     width: 12px;
     top: 13px;
-    right: 100%;
-    margin-right: 10px;
+    left: 100%;
+    margin-left: 10px;
   }
   ${(props) =>
     props.big &&
@@ -114,9 +115,9 @@ const RankingWrapper = styled.div<{ big?: boolean; visible?: boolean }>`
       padding-top: 7.5px;
       &:after {
         border-top-color: #aaa;
-        width: 24px;
+        width: 40px;
         top: 16px;
-        margin-right: 8px;
+        margin-left: 8px;
       }
     `}
 `;

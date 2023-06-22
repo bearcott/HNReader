@@ -5,13 +5,13 @@ import { Cell, CommentCell, NewsRow } from "./NewsRow";
 export const NewsList = ({ newsList }) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [timer, setTimer] = useState(null);
-  const onScroll = () => {
-    setIsScrolling(true);
-    if (timer) clearTimeout(timer);
-    setTimer(
+  const onScroll = async () => {
+    if (timer) await clearTimeout(timer);
+    await setIsScrolling(true);
+    await setTimer(
       setTimeout(() => {
         setIsScrolling(false);
-      }, 100)
+      }, 600)
     );
   };
   useEffect(() => {
