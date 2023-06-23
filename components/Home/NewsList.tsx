@@ -1,25 +1,11 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import { Cell, CommentCell, NewsRow } from "./NewsRow";
+import { useIsScrolling } from "../../helpers/effects";
 
 export const NewsList = ({ newsList }) => {
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [timer, setTimer] = useState(null);
-  const onScroll = async () => {
-    if (timer) await clearTimeout(timer);
-    await setIsScrolling(true);
-    await setTimer(
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, 600)
-    );
-  };
-  useEffect(() => {
-    document.addEventListener("scroll", onScroll);
-    return () => {
-      document.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+  const isScrolling = useIsScrolling();
+
   return (
     <Wrapper>
       <CommentCell>💬</CommentCell>

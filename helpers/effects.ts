@@ -21,3 +21,27 @@ export const useInitialFetch = (url: string, refetch?: any[]) => {
 
   return [data, isLoading];
 };
+
+export const useIsScrolling = () => {
+  let timer = null;
+
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!isScrolling) setIsScrolling(true);
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        setIsScrolling(false);
+        timer = null;
+      }, 1000);
+    };
+
+    document.addEventListener("scroll", onScroll);
+    return () => {
+      document.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return isScrolling;
+};
